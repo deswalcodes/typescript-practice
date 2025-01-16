@@ -1,10 +1,32 @@
+interface People {
+    name : string,
+    age : number,
+    isLegal : () => boolean
+}
 
-function delayedCall(fn : () => void){
-    setTimeout(fn,5000)
+
+
+
+class Manager implements People {
+    name : string;
+    age : number;
+    constructor(name:string,age:number){
+        this.name = name;
+        this.age = age;
+
+    }
+    isLegal(){
+        return this.age > 18
+    }
 
 }
 
-delayedCall(() => {
-    console.log('hello')
-})
+let m = new Manager("john",30)
+console.log(m.isLegal())
 
+class God extends Manager{
+    constructor(name:string,age:number){
+        super(name,age)
+
+    }
+}
